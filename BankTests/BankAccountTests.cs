@@ -72,7 +72,22 @@ namespace BankTests
             Assert.ThrowsException<System.ArgumentOutOfRangeException>(() => account.Credit(creditAmount));
         }
 
-        
+        [TestMethod]
+        public void Credito_QuandoOCreditoSoma_ShouldThrowArgumentOutOfRange()
+        {
+            //Arrange
+            double beginningCredit = 12.0;
+            double creditAmount = 5.0;
+            double expected = 17.0;
+            BankAccount account = new BankAccount("Henrique", beginningCredit);
+
+            //Act
+            account.Credit(creditAmount);
+
+            //Assert
+            double actual = account.Balance;
+            Assert.AreEqual(expected, actual, "Crédito ocorreu sem problemas.");
+        }
 
     }
 }
