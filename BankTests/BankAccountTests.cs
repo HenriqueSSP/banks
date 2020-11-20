@@ -42,11 +42,22 @@ namespace BankTests
         {
             // Arrange
             double beginningBalance = 11.99;
-            double debitAmount = 14.99;
+            double debitAmount = 20.00;
             BankAccount account = new BankAccount("Henrique", beginningBalance);
 
             // Act and assert
-            Assert.ThrowsException<System.ArgumentOutOfRangeException>(() => account.Debit(debitAmount));
+            //removi-> Assert.ThrowsException<System.ArgumentOutOfRangeException>(() => account.Debit(debitAmount));
+            try
+            {
+                account.Debit(debitAmount);
+            }
+            catch (System.ArgumentOutOfRangeException e)
+            {
+                // Novo Assert
+                StringAssert.Contains(e.Message, BankAccount.DebitAmountExceedsBalanceMessage);
+                return;
+            }
+            Assert.Fail("The expected exception was not thrown.");
         }
 
     }
