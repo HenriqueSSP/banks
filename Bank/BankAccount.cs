@@ -10,6 +10,9 @@ namespace Bank
         public const string DebitAmountExceedsBalanceMessage = "Debit amount exceeds balance";
         public const string DebitAmountLessThanZeroMessage = "Debit amount is less than zero";
 
+        //public const string CreditAmontExceedsBalanceMessage = "Credit amount exceeds balance";
+        //public const string CreditAmountLessThanZeroMessage = "Credit amount is less than zero";
+
         // construtores
         public BankAccount() { }
         public BankAccount(string customerName, double balance) 

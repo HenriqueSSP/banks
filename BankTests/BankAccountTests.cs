@@ -60,5 +60,19 @@ namespace BankTests
             Assert.Fail("The expected exception was not thrown.");
         }
 
+        [TestMethod]
+        public void Credito_QuandoOCreditoForNegativo_ShouldThrowArgumentOutOfRange()
+        {
+            // Arrange
+            double beginningCredit = 11.99;
+            double creditAmount = -19.0;
+            BankAccount account = new BankAccount("Henrique", beginningCredit);
+
+            //Act and Assert
+            Assert.ThrowsException<System.ArgumentOutOfRangeException>(() => account.Credit(creditAmount));
+        }
+
+        
+
     }
 }
