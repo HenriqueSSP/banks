@@ -7,6 +7,9 @@ namespace Bank
         private readonly string m_customerName;
         private double m_balance;
 
+        public const string DebitAmountExceedsBalanceMessage = "Debit amount exceeds balance";
+        public const string DebitAmountLessThanZeroMessage = "Debit amount is less than zero";
+
         // construtores
         public BankAccount() { }
         public BankAccount(string customerName, double balance) 
@@ -38,7 +41,7 @@ namespace Bank
             {
                 throw new ArgumentOutOfRangeException("amount");
             }
-            m_balance += amount;
+            m_balance -= amount;
         }
 
         public void Credit(double amount)
